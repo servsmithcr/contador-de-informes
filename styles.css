@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --paper: #EDE6D3;
+  --paper-card: #F8F4E8;
+  --ink: #24211D;
+  --ink-soft: #6B6459;
+  --line: #C9BFA8;
+  --accent: #C7551E;
+  --accent-ink: #FFF7EC;
+  --ok: #3E6B4F;
+  --danger: #A83A2C;
+  --focus: #1F5C6E;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(36,33,29,0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 80px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.brand .mark {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  background: var(--ink);
+  color: var(--paper-card);
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+
+.brand h1 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.brand .sub {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* ---------- Tarjetas base ---------- */
+.card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(36,33,29,0.04);
+  padding: 28px;
+  width: 100%;
+}
+
+.card + .card { margin-top: 20px; }
+
+/* ---------- Login ---------- */
+.login-wrap {
+  width: 100%;
+  max-width: 380px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.field input, .field textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.field input:focus, .field textarea:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 11px 18px;
+  transition: transform 0.05s ease, filter 0.15s ease;
+}
+
+button:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  width: 100%;
+}
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.btn-secondary:hover { background: rgba(36,33,29,0.05); }
+
+.error-msg {
+  background: #F4E3DE;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 14px;
+}
+
+.ok-msg {
+  background: #E3EEE5;
+  border: 1px solid var(--ok);
+  color: var(--ok);
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 14px;
+}
+
+/* ---------- App principal ---------- */
+.app-wrap {
+  width: 100%;
+  max-width: 720px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.who {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.who strong { color: var(--ink); }
+
+/* Ticket de asignación: referencia visual al talón de laboratorio */
+.ticket {
+  position: relative;
+  background: var(--paper-card);
+  border: 1px dashed var(--line);
+  border-radius: 4px;
+  padding: 26px 26px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.ticket::before, .ticket::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ticket::before { left: -9px; }
+.ticket::after { right: -9px; }
+
+.ticket-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.ticket-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.ticket-hint {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.assign-form { margin-top: 18px; text-align: left; }
+
+.charcount {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  text-align: right;
+  margin-top: 4px;
+}
+.charcount.over { color: var(--danger); font-weight: 600; }
+
+/* ---------- Historial ---------- */
+.section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+thead th {
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  padding: 0 8px 8px 0;
+}
+
+tbody td {
+  padding: 10px 8px 10px 0;
+  border-bottom: 1px solid rgba(201,191,168,0.5);
+  vertical-align: top;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+.num-cell {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.muted { color: var(--ink-soft); font-size: 12.5px; }
+
+.empty-state {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+  padding: 24px 0;
+}
+
+.hidden { display: none !important; }
+
+@media (max-width: 480px) {
+  .ticket-number { font-size: 44px; }
+  .card { padding: 20px; }
+}
